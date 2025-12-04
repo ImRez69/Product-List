@@ -31,18 +31,18 @@ const productList = [
 
 function createDiv(product) {
   const parentDiv = document.createElement("div");
-  const a = document.createElement("a");
-
   const childDiv = document.createElement("div");
+  const a = document.createElement("a");
   const price = parseInt(product.price).toLocaleString("fa") + " تومان";
   const title = product.title;
+  const image = product.image;
 
   parentDiv.classList.add("product");
+  childDiv.classList.add("inside-product");
   a.classList.add("product-a");
   a.href = product.link;
 
-  childDiv.classList.add("inside-product");
-  childDiv.appendChild(createImg(product.image, "image"));
+  childDiv.appendChild(createImg(image, "image"));
   childDiv.appendChild(createSpan(title, "title"));
   childDiv.appendChild(createSpan(price, "price"));
 
@@ -61,7 +61,6 @@ function createSpan(details, className) {
 
 function createImg(src, className) {
   const img = document.createElement("img");
-  const a = document.createElement("a");
   img.classList.add(className);
   img.src = src;
   return img;
