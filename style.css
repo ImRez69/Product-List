@@ -20,10 +20,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   flex-direction: column;
-  gap: 16px;
+  /* gap: 16px; */
 }
 
 main {
@@ -32,7 +32,7 @@ main {
   justify-content: center;
   align-content: flex-start;
   /* height: 100%; */
-  padding-top: 24px;
+  padding: 24px;
   width: 100%;
   gap: 20px;
 }
@@ -46,11 +46,24 @@ main {
   transition: transform 200ms linear;
 }
 
-.product:hover {
+#load-more {
+  transition: transform 200ms linear;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  background: rgba(4, 165, 165, 0.6);
+  box-shadow: 0px 0px 8px rgb(15, 108, 108);
+}
+
+.product:hover,
+#load-more:hover {
   transform: scale(1.1);
 }
 
 .product-a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: white;
 }
