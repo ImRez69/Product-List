@@ -35,6 +35,7 @@ main {
   padding: 24px;
   width: 100%;
   gap: 20px;
+  transition: opacity 200ms linear;
 }
 
 .product {
@@ -47,7 +48,7 @@ main {
 }
 
 #load-more {
-  transition: transform,padding,opacity, 200ms linear;
+  transition: transform, padding, opacity, 200ms linear;
   padding: 8px;
   margin: 8px;
   border-radius: 8px;

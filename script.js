@@ -461,19 +461,21 @@ function checkUi() {
   productLoad(productList, times);
 }
 
-function loadMoreClick() {
+function loadMoreEvent() {
   loadMore.innerText = "Loading...";
   loadMore.classList.add("spin");
-  loadMore.removeEventListener("click", loadMoreClick);
+  loadMore.removeEventListener("click", loadMoreEvent);
+  main.style.opacity = "0.4";
   setTimeout(() => {
     productUnLoad();
     productLoad(productList, times);
     loadMore.classList.remove("spin");
     loadMore.innerText = "Load More";
-    loadMore.addEventListener("click", loadMoreClick);
+    loadMore.addEventListener("click", loadMoreEvent);
+    main.style.opacity = "1";
   }, 2000);
 }
 
-loadMore.addEventListener("click", loadMoreClick);
+loadMore.addEventListener("click", loadMoreEvent);
 
 checkUi();
