@@ -62,6 +62,7 @@ main {
 #load-more.spin {
   padding-right: 36px;
   opacity: 0.4;
+  cursor: no-drop;
 }
 
 #load-more.spin::after {
