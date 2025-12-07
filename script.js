@@ -462,18 +462,21 @@ function checkUi() {
 }
 
 function loadMoreEvent() {
-  loadMore.innerText = "Loading...";
-  loadMore.classList.add("spin");
-  loadMore.removeEventListener("click", loadMoreEvent);
-  main.style.opacity = "0.4";
-  setTimeout(() => {
+  const load = () => {
     productUnLoad();
     productLoad(productList, times);
     loadMore.classList.remove("spin");
     loadMore.innerText = "Load More";
     loadMore.addEventListener("click", loadMoreEvent);
     main.style.opacity = "1";
-  }, 2000);
+  };
+
+  loadMore.innerText = "Loading...";
+  loadMore.classList.add("spin");
+  loadMore.removeEventListener("click", loadMoreEvent);
+  main.style.opacity = "0.4";
+
+  setTimeout(load, 2000);
 }
 
 loadMore.addEventListener("click", loadMoreEvent);
