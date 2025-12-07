@@ -461,15 +461,19 @@ function checkUi() {
   productLoad(productList, times);
 }
 
-loadMore.addEventListener("click", () => {
+function loadMoreClick() {
   loadMore.innerText = "Loading...";
   loadMore.classList.add("spin");
+  loadMore.removeEventListener("click", loadMoreClick);
   setTimeout(() => {
     productUnLoad();
     productLoad(productList, times);
     loadMore.classList.remove("spin");
     loadMore.innerText = "Load More";
+    loadMore.addEventListener("click", loadMoreClick);
   }, 2000);
-});
+}
+
+loadMore.addEventListener("click", loadMoreClick);
 
 checkUi();
