@@ -462,11 +462,13 @@ function checkUi() {
 }
 
 loadMore.addEventListener("click", () => {
+  loadMore.innerText = "Loading...";
   loadMore.classList.add("spin");
   setTimeout(() => {
     productUnLoad();
     productLoad(productList, times);
     loadMore.classList.remove("spin");
+    loadMore.innerText = "Load More";
   }, 2000);
 });
 
