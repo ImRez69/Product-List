@@ -47,12 +47,41 @@ main {
 }
 
 #load-more {
-  transition: transform 200ms linear;
+  transition: transform,padding,opacity, 200ms linear;
   padding: 8px;
   margin: 8px;
   border-radius: 8px;
   background: rgba(4, 165, 165, 0.6);
   box-shadow: 0px 0px 8px rgb(15, 108, 108);
+  position: relative;
+  opacity: 1;
+}
+
+#load-more.spin {
+  padding-right: 36px;
+  opacity: 0.4;
+}
+
+#load-more.spin::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid;
+  border-radius: 50px;
+  border-color: rgb(0, 43, 43) transparent;
+  top: 50%;
+  right: -8px;
+  animation: spiner 800ms infinite;
+}
+
+@keyframes spiner {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
 }
 
 .product:hover,

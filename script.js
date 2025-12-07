@@ -1,6 +1,7 @@
 const main = document.querySelector("main");
 const loadMore = document.getElementById("load-more");
 let loadTimes = 0;
+const times = 5;
 const productList = [
   {
     id: 1,
@@ -425,7 +426,7 @@ function createDiv(product) {
   a.appendChild(childDiv);
   parentDiv.appendChild(a);
 
-  return addToMain(parentDiv);
+  return parentDiv;
 }
 
 function createSpan(details, className) {
@@ -446,22 +447,27 @@ function addToMain(element) {
   main.appendChild(element);
 }
 
-function productLoad5(itemList) {
-  const itemList5 = itemList.slice(loadTimes, loadTimes + 5);
-  itemList5.map((item) => {
-    createDiv(item);
-  });
-  loadTimes += 5;
+function productLoad(itemList, times) {
+  const itemListTimes = itemList.slice(loadTimes, loadTimes + times);
+  itemListTimes.map((item) => addToMain(createDiv(item)));
+  loadTimes += times;
 }
 
 function productUnLoad() {
   main.innerHTML = "";
-  console.log(main.innerHTML);
 }
 
-productLoad5(productList);
+function checkUi() {
+  productLoad(productList, times);
+}
 
 loadMore.addEventListener("click", () => {
-  productUnLoad();
-  productLoad5(productList);
+  loadMore.classList.add("spin");
+  setTimeout(() => {
+    productUnLoad();
+    productLoad(productList, times);
+    loadMore.classList.remove("spin");
+  }, 2000);
 });
+
+checkUi();
