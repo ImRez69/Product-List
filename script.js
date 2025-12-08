@@ -462,6 +462,12 @@ function checkUi() {
 }
 
 function loadMoreEvent() {
+
+  loadMore.innerText = "Loading...";
+  loadMore.classList.add("spin");
+  loadMore.removeEventListener("click", loadMoreEvent);
+  main.style.opacity = "0.4";
+
   const load = () => {
     productUnLoad();
     productLoad(productList, times);
@@ -469,13 +475,9 @@ function loadMoreEvent() {
     loadMore.innerText = "Load More";
     loadMore.addEventListener("click", loadMoreEvent);
     main.style.opacity = "1";
+    window.scrollTo({ top: 0, behavior: "smooth" })
     if (loadCount >= productList.length) loadMore.remove();
   };
-
-  loadMore.innerText = "Loading...";
-  loadMore.classList.add("spin");
-  loadMore.removeEventListener("click", loadMoreEvent);
-  main.style.opacity = "0.4";
 
   setTimeout(load, 2000);
 }
