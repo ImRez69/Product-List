@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 const loadMore = document.getElementById("load-more");
 let loadTimes = 0;
-const times = 5;
+const times = 7;
 const productList = [
   {
     id: 1,
@@ -469,6 +469,7 @@ function loadMoreEvent() {
     loadMore.innerText = "Load More";
     loadMore.addEventListener("click", loadMoreEvent);
     main.style.opacity = "1";
+    if (loadTimes >= productList.length) loadMore.remove();
   };
 
   loadMore.innerText = "Loading...";
