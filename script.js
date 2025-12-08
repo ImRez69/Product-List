@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 const loadMore = document.getElementById("load-more");
 let loadCount = 0;
-const times = 7;
+const times = 5;
 const productList = [
   {
     id: 1,
