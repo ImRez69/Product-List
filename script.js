@@ -457,10 +457,6 @@ function productUnLoad() {
   main.innerHTML = "";
 }
 
-function checkUi() {
-  productLoad(productList, times);
-}
-
 function loadMoreEvent() {
 
   loadMore.innerText = "Loading...";
@@ -482,6 +478,10 @@ function loadMoreEvent() {
   setTimeout(load, 2000);
 }
 
-loadMore.addEventListener("click", loadMoreEvent);
+function checkUi() {
+  productLoad(productList, times);
+}
 
 checkUi();
+
+loadMore.addEventListener("click", loadMoreEvent);
