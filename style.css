@@ -121,3 +121,13 @@ main {
   text-align: center;
   direction: rtl;
 }
+
+.title {
+  height: 52px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
