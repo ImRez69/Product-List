@@ -1,7 +1,7 @@
-const main = document.querySelector("main");
+const productsDiv = document.getElementById("products-div");
 const loadMore = document.getElementById("load-more");
 let loadCount = 0;
-const times = 5;
+const itmePerLoad = 5;
 const productList = [
   {
     id: 1,
@@ -443,34 +443,34 @@ function createImg(src, className) {
   return img;
 }
 
-function addToMain(element) {
-  main.appendChild(element);
+function addToProductsDiv(element) {
+  productsDiv.appendChild(element);
 }
 
-function productLoad(itemList, times) {
-  const itemListTimes = itemList.slice(loadCount, loadCount + times);
-  itemListTimes.map((item) => addToMain(createDiv(item)));
-  loadCount += times;
+function productsLoad(itemList, itmePerLoad) {
+  const itemListTimes = itemList.slice(loadCount, loadCount + itmePerLoad);
+  itemListTimes.forEach((item) => addToProductsDiv(createDiv(item)));
+  loadCount += itmePerLoad;
 }
 
-function productUnLoad() {
-  main.innerHTML = "";
+function productsUnLoad() {
+  productsDiv.innerHTML = "";
 }
 
 function loadMoreEvent() {
 
   loadMore.innerText = "Loading...";
-  loadMore.classList.add("spin");
+  loadMore.classList.add("loading");
   loadMore.removeEventListener("click", loadMoreEvent);
-  main.style.opacity = "0.4";
+  productsDiv.style.opacity = "0.4";
 
   const load = () => {
-    productUnLoad();
-    productLoad(productList, times);
-    loadMore.classList.remove("spin");
+    productsUnLoad();
+    productsLoad(productList, itmePerLoad);
+    loadMore.classList.remove("loading");
     loadMore.innerText = "Load More";
     loadMore.addEventListener("click", loadMoreEvent);
-    main.style.opacity = "1";
+    productsDiv.style.opacity = "1";
     window.scrollTo({ top: 0, behavior: "smooth" })
     if (loadCount >= productList.length) loadMore.remove();
   };
@@ -479,7 +479,7 @@ function loadMoreEvent() {
 }
 
 function checkUi() {
-  productLoad(productList, times);
+  productsLoad(productList, itmePerLoad);
 }
 
 checkUi();

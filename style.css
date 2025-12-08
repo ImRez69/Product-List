@@ -30,8 +30,13 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+#products-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-content: flex-start;
-  /* height: 100%; */
   padding: 24px;
   width: 100%;
   gap: 20px;
@@ -59,13 +64,13 @@ main {
   cursor: pointer;
 }
 
-#load-more.spin {
+#load-more.loading {
   padding-right: 30px;
   opacity: 0.4;
   cursor: no-drop;
 }
 
-#load-more.spin::after {
+#load-more.loading::after {
   content: "";
   position: absolute;
   width: 12px;
