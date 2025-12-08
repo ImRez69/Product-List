@@ -1,6 +1,6 @@
 const main = document.querySelector("main");
 const loadMore = document.getElementById("load-more");
-let loadTimes = 0;
+let loadCount = 0;
 const times = 7;
 const productList = [
   {
@@ -448,9 +448,9 @@ function addToMain(element) {
 }
 
 function productLoad(itemList, times) {
-  const itemListTimes = itemList.slice(loadTimes, loadTimes + times);
+  const itemListTimes = itemList.slice(loadCount, loadCount + times);
   itemListTimes.map((item) => addToMain(createDiv(item)));
-  loadTimes += times;
+  loadCount += times;
 }
 
 function productUnLoad() {
@@ -469,7 +469,7 @@ function loadMoreEvent() {
     loadMore.innerText = "Load More";
     loadMore.addEventListener("click", loadMoreEvent);
     main.style.opacity = "1";
-    if (loadTimes >= productList.length) loadMore.remove();
+    if (loadCount >= productList.length) loadMore.remove();
   };
 
   loadMore.innerText = "Loading...";
