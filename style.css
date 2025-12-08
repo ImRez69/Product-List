@@ -20,10 +20,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 100vh; */
   width: 100%;
   flex-direction: column;
-  /* gap: 16px; */
 }
 
 main {
@@ -32,19 +30,19 @@ main {
   justify-content: center;
 }
 
-#products-div{
+#products-div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
-  padding: 24px;
+  padding: 24px 4px;
   width: 100%;
   gap: 20px;
   transition: opacity 200ms linear;
 }
 
 .product {
-  width: 180px;
+  width: 170px;
   height: 240px;
   border-radius: 12px;
   background: rgb(0, 43, 43);
