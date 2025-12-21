@@ -126,7 +126,7 @@ main {
 }
 
 .title {
-  height: 52px;
+  height: 56px;
   width: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 3;
